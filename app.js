@@ -1,15 +1,15 @@
-let amigos = [];
+let amiguis = [];
 
 function agregarAmigo() {
-    let nuevoAmigui = document.getElementById('amigo');
-    let nombre = nuevoAmigui.value.trim();
+    const inputAmigui = document.getElementById('amigo');
+    const nombreAmigui = inputAmigui.value.trim();
 
-    if (nombreAmigui.lenght === "") {
+    if (nombreAmigui === "") {
             alert('Error. Por favor, inserte un nombre.');
             return;
         }
-        
-        amigos.push(nombreAmigui);
+
+        amiguis.push(nombreAmigui);
 
         actualizarLista();
 
@@ -18,14 +18,37 @@ function agregarAmigo() {
 
         }
 
+
 function actualizarLista() {
-    let listaAmiguis = document.getElementById("listaAmigos")
+    const listaAmiguis = document.getElementById("listaAmigos")
     listaAmiguis.innerHTML = "";
 
-    amigos.forEach(amigo => {
-    let li = document.createElement(li)
+    amiguis.forEach(amigo => {
+    const li = document.createElement("li");
     li.textContent = amigo;
     listaAmiguis.appendChild(li);
-    
+
 });
 }
+
+function sortearAmigui() {
+    if(amiguis.length === 0) {
+        alert("No hay amiguis en la lista. Agrega nombres en la lista.")
+        return;
+
+    }
+
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length)
+
+    const amiguiSorteado = amiguis[indiceAleatorio];
+
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `<li>${amiguiSorteado}</li>`;
+
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("btnAddFriend").addEventListener ("click", agregarAmigo)
+    document.getElementById("btnDrawFriend").addEventListener("click", sortearAmigui)
+});
