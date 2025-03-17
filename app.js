@@ -18,3 +18,14 @@ function agregarAmigo() {
 
         }
 
+function actualizarLista() {
+    let listaAmiguis = document.getElementById("listaAmigos")
+    listaAmiguis.innerHTML = "";
+
+    amigos.forEach(amigo => {
+    let li = document.createElement(li)
+    li.textContent = amigo;
+    listaAmiguis.appendChild(li);
+    
+});
+}
