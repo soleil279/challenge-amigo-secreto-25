@@ -15,6 +15,7 @@ function agregarAmigo() {
 
         inputAmigui.value = "";
         inputAmigui.focus();
+        //este metodo enfoca el elemento para volver a él inmediatamente
 
         }
 
@@ -38,17 +39,11 @@ function sortearAmigui() {
 
     }
 
-    const indiceAleatorio = Math.floor(Math.random() * amigos.length)
+    const indiceAleatorio = Math.floor(Math.random() * amiguis.length);
 
     const amiguiSorteado = amiguis[indiceAleatorio];
 
     const resultado = document.getElementById("resultado");
     resultado.innerHTML = `<li>${amiguiSorteado}</li>`;
 
-
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("btnAddFriend").addEventListener ("click", agregarAmigo)
-    document.getElementById("btnDrawFriend").addEventListener("click", sortearAmigui)
-});
